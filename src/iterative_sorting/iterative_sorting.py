@@ -23,6 +23,18 @@ def selection_sort(arr):
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     # Your code here
+    corrections_made = False
+    for i in range(0, len(arr) - 1):
+        corrections_made = False
+        for viewing in range(0, len(arr)-1):
+            if arr[viewing] > arr[viewing+1]:
+                temp = arr[viewing]
+                arr[viewing] = arr[viewing+1]
+                arr[viewing+1] = temp
+                corrections_made = True
+        if corrections_made == False:
+            print('No further corrections needed! Iteration:', i)
+            return arr
 
     return arr
 
@@ -36,11 +48,11 @@ data. The idea behind this algorithm then is that we can create "buckets"
 from 0 up to the max value. This is most easily done by initializing an
 array of 0s whose length is the max value + 1 (why do we need this "+ 1"?).
 
-Each buckets[i] then is responsible for keeping track of how many times 
+Each buckets[i] then is responsible for keeping track of how many times
 we've seen `i` in the input set of data as we iterate through it.
 Once we know exactly how many times each piece of data in the input set
-showed up, we can construct a sorted set of the input data from the 
-buckets. 
+showed up, we can construct a sorted set of the input data from the
+buckets.
 
 What is the time and space complexity of the counting sort algorithm?
 '''
